@@ -1,7 +1,7 @@
 Package: EnvCpt
 Type: Package
 Title: Detection of Structural Changes in Climate and Environment Time Series
-Version: 0.1.1
+Version: 0.1.2
 Date: 2016-10-11
 Authors@R: c(person("Rebecca", "Killick", role=c("aut","cre"),email="r.killick@lancs.ac.uk"),
 	person("Claudie", "Beaulieu", role="aut"), person("Simon", "Taylor", role="aut"))
