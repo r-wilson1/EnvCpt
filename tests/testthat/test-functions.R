@@ -41,6 +41,6 @@ test_that("AIC not numeric",expect_error(AIC(tmp),"First two rows in matrix in f
 tmp=matrix(rnorm(100),nrow=100,ncol=1)
 test_that("Data is univariate",expect_error(single.reg.norm.calc(tmp),"Dimension of data is 1, no regressors found"))
 
-tmp=matrix(rnorm(15),nrow=5,ncol=3,byrow=TRUE)
+tmp=matrix(rnorm(20),nrow=5,ncol=4,byrow=TRUE)
 test_that("Not enough data",expect_error(single.reg.norm.calc(tmp),"Too many regressors / not enough data to test for a change"))
 
