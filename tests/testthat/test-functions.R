@@ -53,6 +53,6 @@ test_that("Parameter lengths match in decision function",expect_error(decision(t
 # LMregression decision
 test_that("Correct penalty form",expect_error(decision(tau=rep(1,2),null=rep(0,2),alt=rep(2,2),penalty="err",n=0,diffparam=1,value=0),"Unknown Penalty"))
 	
-test_that("Manual penalty error",expect_error(decision(tau=rep(1,2),null=rep(0,2),alt=rep(2,2),penalty="Manual",n=0,diffparam=1,value=NA),"Your manual penalty cannot be evaluated"))
+test_that("Value parameter missing",expect_error(decision(tau=rep(1,2),null=rep(0,2),alt=rep(2,2),penalty="Manual",n=0,diffparam=1,value=NA),"missing value where TRUE/FALSE needed"))
 
-
+test_that("Manual penalty error",expect_error(decision(tau=rep(1,2),null=rep(0,2),alt=rep(2,2),penalty="Manual",n=0,diffparam=1,value='string'),"Your manual penalty cannot be evaluated"))
