@@ -37,10 +37,22 @@ class(tmp)="envcpt"
 test_that("AIC not numeric",expect_error(AIC(tmp),"First two rows in matrix in first element of object list must be numeric"))
 
 
-# LMregression
+# LMregression norm.reg.calc
 tmp=matrix(rnorm(100),nrow=100,ncol=1)
 test_that("Data is univariate",expect_error(single.reg.norm.calc(tmp),"Dimension of data is 1, no regressors found"))
 
 tmp=matrix(rnorm(20),nrow=5,ncol=4,byrow=TRUE)
 test_that("Not enough data",expect_error(single.reg.norm.calc(tmp),"Too many regressors / not enough data to test for a change"))
+
+#LM regression decision
+tau=rep(1,2)
+null=0
+alt=1
+test_that("Parameter lengths match in decision function",expect_error(decision(tau,null,alt,penalty="SIC",n=0,diffparam=1,value=0),"Lengths of tau, null and alt do not match"))
+
+# LMregression decision
+test_that("Correct penalty form",expect_error(decision(tau=rep(1,2),null=rep(0,2),alt=rep(2,2),penalty="err",n=0,diffparam=1,value=0),"Unknown Penalty"))
+	
+test_that("Manual penalty error",expect_error(decision(tau=rep(1,2),null=rep(0,2),alt=rep(2,2),penalty="Manual",n=0,diffparam=1,value=NA),"Your manual penalty cannot be evaluated"))
+
 
