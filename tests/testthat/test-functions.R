@@ -35,3 +35,8 @@ test_that("AIC not matrix",expect_error(AIC(tmp),"first element in the object li
 tmp=list(summary=matrix(LETTERS,nrow=2))
 class(tmp)="envcpt"
 test_that("AIC not numeric",expect_error(AIC(tmp),"First two rows in matrix in first element of object list must be numeric"))
+
+
+# LMregression
+tmp=matrix(rnorm(100),nrow=100,ncol=1)
+test_that("Data is univariate",expect_error(single.reg.norm.calc(tmp),"Dimension of data is 1, no regressors found"))
